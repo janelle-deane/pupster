@@ -16,21 +16,12 @@ export default class Discover extends Component {
 
                 <div className="card">
                     <div className="img-container">
-                        <img alt={props.name} src={props.image} />
+                        <img src="https://place-puppy.com/300x300" alt="..." className="img-thumbnail" />
+                        <button><i class="fas fa-thumbs-up"></i></button>
+                        <button><i class="fas fa-thumbs-down"></i></button>
                     </div>
-                    <div className="content">
-                        <ul>
-                            <li>
-                                <strong>Name:</strong> {props.name}
-                            </li>
-                            <li>
-                                <strong>Occupation:</strong> {props.occupation}
-                            </li>
-                            <li>
-                                <strong>Location:</strong> {props.location}
-                            </li>
-                        </ul>
-
+                    <div>
+                        <h4>You have 5 friends! </h4>
                     </div>
                 </div>
             </div>
