@@ -1,11 +1,34 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import API from "../API../utils/API"
 
 export default class Discover extends Component {
     state = {
         img: "",
         match: false,
         friendsCount: 0
-    }
+    };
+
+    componentDidMount() {
+        API.getRandomDog().then(res => {
+            this.setState({ img: res.data.message })
+        })
+    };
+    dislike() {
+        API.getRandomDog().then(res => {
+            this.setState({ img: res.data.message })
+        })
+    };
+
+    like() {
+        const randNumber = Math.floor(Math.random() * 5)
+        if (randNumber === 1) {
+            this.setState({ count: this.state.count + 1 })
+        }
+        API.getRandomDog().then(res => {
+            this.setState({ img: res.data.message })
+        })
+    };
+
 
 
     render() {
@@ -16,7 +39,7 @@ export default class Discover extends Component {
 
                 <div className="card">
                     <div className="img-container">
-                        <img src="https://place-puppy.com/300x300" alt="..." className="img-thumbnail" />
+                        <img src={this.state.img} alt="..." className="img-thumbnail" />
                         <button>Like<i class="fas fa-thumbs-up"></i></button>
                         <button>Dislike<i class="fas fa-thumbs-down"></i></button>
                     </div>
