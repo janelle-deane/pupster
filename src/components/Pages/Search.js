@@ -6,6 +6,7 @@ import API from '../../utils/API';
 export default class Search extends Component {
     state={
         searchBreed:"",
+        breeds:[],
         results:[]
     };
 
@@ -27,6 +28,9 @@ export default class Search extends Component {
         return (
             <div className="Search">
                 <form>
+                    <datalist id="breed">
+                        {this.state.breeds}
+                    </datalist>
                     <input name="searchBreed" value={this.state.searchBreed} onChange={this.handleInputChange}/>
                     <button>Search</button>
                 </form>

@@ -22,7 +22,7 @@ export default class Discover extends Component {
     like() {
         const randNumber = Math.floor(Math.random() * 5)
         if (randNumber === 1) {
-            this.setState({ count: this.state.count + 1 })
+            this.setState({ count: this.state.friendscount + 1 })
         }
         API.getRandomDog().then(res => {
             this.setState({ img: res.data.message })
