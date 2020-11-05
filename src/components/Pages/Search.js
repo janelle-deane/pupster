@@ -1,13 +1,40 @@
 
 import React, { Component } from 'react';
+import API from '../../utils/API';
 
 
 export default class Search extends Component {
+    state={
+        searchBreed:"",
+        results:[]
+    };
+
+    handleInputChange=event =>{
+        const {name, value}=event.target;
+        this.setState({
+            [name]: value
+        })
+    }; 
+
+    handleFormSubmit = event =>{
+        event.preventDefault();
+        API.getBreedPic(this.state.searchBreed).then(res=>{
+            this.setState({results:res.data.message})
+        })
+    }
+
     render() {
         return (
             <div className="Search">
+                <form>
+                    <input name="searchBreed" value={this.state.searchBreed} onChange={this.handleInputChange}/>
+                    <button>Search</button>
+                </form>
                 <h1>Search</h1>
+                {this.state.results.map(pic=><img src ={pic}/>)}
             </div>
+            
+           
         )
     }
 }

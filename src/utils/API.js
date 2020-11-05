@@ -1,10 +1,16 @@
-const { default: Axios } = require("axios")
-
-import Axios from "axios";
+import axios from "axios";
 
 
 const API={
     getRandomDog: function(){
-        return Axios("https://dog.ceo/api/breeds/image/random");
+        return axios("https://dog.ceo/api/breeds/image/random");
+    },
+    getBreedPic:function(breed){
+        return axios(`https://dog.ceo/api/breeds/list/all
+        https://dog.ceo/api/breed/${breed}/images
+        `)
     }
 }
+
+
+export default API

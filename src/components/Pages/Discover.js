@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import API from "../API../utils/API"
+import API from "../../utils/API"
 
 export default class Discover extends Component {
     state = {
@@ -39,9 +39,9 @@ export default class Discover extends Component {
 
                 <div className="card">
                     <div className="img-container">
-                        <img src={this.state.img} alt="..." className="img-thumbnail" />
-                        <button>Like<i class="fas fa-thumbs-up"></i></button>
-                        <button>Dislike<i class="fas fa-thumbs-down"></i></button>
+                        <img src={this.state.img} alt="dogpic" className="img-thumbnail" />
+                        <button onClick={this.like}>Like<i class="fas fa-thumbs-up"></i></button>
+                        <button onClick={this.dislike}>Dislike<i class="fas fa-thumbs-down"></i></button>
                     </div>
                     <div>
                         <h4>You have 5 friends! </h4>
